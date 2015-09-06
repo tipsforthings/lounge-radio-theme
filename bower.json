@@ -1,0 +1,9 @@
+{
+  "name": "viplounge",
+  "version": "0.0.1",
+  "private": "true",
+  "dependencies": {
+    "masonry": "~3.3.0",
+    "foundation": "zurb/bower-foundation"
+  }
+}
