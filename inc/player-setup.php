@@ -72,4 +72,19 @@ $(document).ready(function() {
 <?php }
 add_action('wp_print_footer_scripts' , 'lounge_player_setup');
 
+if ( ! function_exists( 'lounge_player_info' ) ) :
+
+function lounge_player_info() {
+  $url = "http://alxs.co.uk:8000/stats?sid=1&mode=viewxml";
+  $nice_url = urlencode($url);
+  $sc_stats = simplexml_load_file($nice_url);
+  if ($sc_stats->SERVERSTATUS=1) { 
+    $serverstatus = 'Stream Active';
+  } else {
+    $serverstatus = 'Stream Inactive';
+  }
+  
+  echo '<strong>' . $sc_stats->SERVERTITLE . '</strong> | ' . $sc_stats->SONGTITLE . ' <span class="label">Live</span>';
+}
+endif;
 

@@ -76,6 +76,14 @@ function lounge_customizer( $wp_customize ) {
       'default'     => 'true',
       'transport'   => 'refresh',
   ) );
+  $wp_customize->add_setting( 'lounge_stream_title' , array(
+      'default'     => '',
+      'transport'   => 'refresh',
+  ) );
+  $wp_customize->add_setting( 'lounge_stream_desc' , array(
+      'default'     => '',
+      'transport'   => 'refresh',
+  ) );
   $wp_customize->add_setting( 'lounge_player_gradient_enabled' , array(
       'default'     => 'true',
       'transport'   => 'refresh',
@@ -114,6 +122,16 @@ function lounge_customizer( $wp_customize ) {
         'true' => __('True', 'lounge'),
         'false' => __('False', 'lounge')
       ),
+  ) ) );
+  $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'lounge_p_title', array (
+      'label'   =>    __( 'Title', 'lounge' ),
+      'settings' => 'lounge_stream_title',
+      'section' => 'lounge_player_base_section',
+  ) ) );
+  $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'lounge_p_desc', array (
+      'label'   =>    __( 'Description', 'lounge' ),
+      'settings' => 'lounge_stream_desc',
+      'section' => 'lounge_player_base_section',
   ) ) );
   $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'lounge_p_gradient_enabled', array (
       'label'   =>    __( 'Player Gradient', 'lounge' ),

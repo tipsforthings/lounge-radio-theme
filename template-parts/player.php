@@ -10,7 +10,7 @@
     </div>
     <div class="lounge-player-element lounge-status-element">
       <div id="lounge-player-status" class="lounge-player-status">
-        <marquee>This is info</marquee>
+        <marquee><?php lounge_player_info() ?></marquee>
       </div>
     
     </div>
