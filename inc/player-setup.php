@@ -72,19 +72,24 @@ $(document).ready(function() {
 <?php }
 add_action('wp_print_footer_scripts' , 'lounge_player_setup');
 
+
 if ( ! function_exists( 'lounge_player_info' ) ) :
 
 function lounge_player_info() {
   $url = "http://alxs.co.uk:8000/stats?sid=1&mode=viewxml";
   $nice_url = urlencode($url);
   $sc_stats = simplexml_load_file($nice_url);
-  if ($sc_stats->SERVERSTATUS=1) { 
-    $serverstatus = 'Stream Active';
-  } else {
-    $serverstatus = 'Stream Inactive';
-  }
+  $servertitle = $sc_stats->SERVERTITLE;
+  $songtitle = $sc_stats->SONGTITLE;
   
-  echo '<strong>' . $sc_stats->SERVERTITLE . '</strong> | ' . $sc_stats->SONGTITLE . ' <span class="label">Live</span>';
+	if ( (get_theme_mod('lounge_stream_title')) != '' ) {
+    $servertitle =  (get_theme_mod('lounge_stream_title'));
+  }
+	if ( (get_theme_mod('lounge_stream_desc')) != '' ) {
+    $songtitle =  (get_theme_mod('lounge_stream_desc'));
+  }
+
+  echo '<strong>' . $servertitle . '</strong> | ' . $songtitle . ' <span class="label">Live</span>';
 }
 endif;
 
