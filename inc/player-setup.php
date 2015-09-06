@@ -34,40 +34,58 @@ function lounge_player_setup() {
 ?>
 <script>
 
-var audio = null;
-soundManager.setup({
-  url: '<?php bloginfo('template_url'); ?>/swf/',
-  flashVersion: 9,
-  preferFlash: false,
-  onready: function() {
-    audio = soundManager.createSound({
-      id: 'vipradio',
-      url: "http://<?php echo get_theme_mod( 'lounge_player_url' ); ?>:<?php echo get_theme_mod( 'lounge_player_port' ); ?>/;",
-      autoLoad: true,
-      autoPlay: false,
-      volume: 90,
-      multiShot: false
-    });
-  }
-});
 
 $(document).ready(function() {
+  $audio = null;
+  $level = null;
+  $status = false;
+  if ($.cookie('player-volume') != null) {
+    $level = $.cookie('player-volume');
+  } else {
+    $level = 90;
+  }
+
+  if ($.cookie('play-status') == 'true') {
+    $status = true;
+  } else {
+    $status = false;
+  }
+
+  $("#lounge-volume-slider").bind("slider:changed", function (event, data) {
+    var $level = (data.value);
+    soundManager.setVolume($level);
+    $.cookie('player-volume', $level);
+  });
+
+  soundManager.setup({
+    url: '<?php bloginfo('template_url'); ?>/swf/',
+    flashVersion: 9,
+    preferFlash: false,
+    onready: function() {
+      audio = soundManager.createSound({
+        id: 'vipradio',
+        url: "http://<?php echo get_theme_mod( 'lounge_player_url' ); ?>:<?php echo get_theme_mod( 'lounge_player_port' ); ?>/;",
+        autoLoad: true,
+        autoPlay: $status,
+        volume: $level,
+        multiShot: false
+      });
+    }
+  });
   $( "#lounge-player-play" ).click(function(e) {
     e.preventDefault();
     if (audio.playState == 0) {
       soundManager.play('vipradio');
+      $.cookie('play-status', 'true');
     } else {
       soundManager.stop('vipradio');
       soundManager.unload('vipradio');
-      soundManager.play('vipradio');
+      $.cookie('play-status', 'false');
     }
   });
-  $( "#lounge-player-stop" ).click(function(e) {
-    e.preventDefault();
-    soundManager.stop('vipradio');
-    soundManager.unload('vipradio');
-  });
 });
+
+
 </script>
 <?php }
 add_action('wp_print_footer_scripts' , 'lounge_player_setup');
@@ -93,3 +111,9 @@ function lounge_player_info() {
 }
 endif;
 
+if ( ! function_exists( 'lounge_player_volume' ) ) :
+
+function lounge_player_volume() {
+  
+}
+endif;

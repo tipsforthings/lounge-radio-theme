@@ -80,12 +80,13 @@ body {
       width: 1%;
       min-height: 3em;
       min-width: 3em;
+      border-left: 1px solid #000;
       &.lounge-status-element {
         width: 100%;
         max-width: 100%;
         min-width: 100%;
         p {
-          line-height: 3em;
+          line-height: 1.5em;
           margin-bottom: 0;
           .label {
               position: relative;
@@ -97,6 +98,17 @@ body {
               border-radius: 3px;
               padding: 0px 3px;
               box-sizing: padding-box;
+          }
+        }
+      }
+      .lounge-player-status,,
+      .lounge-player-volume {
+        width: 100%;
+        line-height: 1.1;
+        marquee {
+          line-height: 1.3;
+          strong {
+            vertical-align: bottom;
           }
         }
       }
@@ -197,5 +209,15 @@ body {
 .gallery-row {
   margin: 0 auto;
 }
-
-
+.slider {
+  width: unset;
+}
+.slider>.dragger {
+    background: #000;
+    background: linear-gradient(top,#000,#222);
+    box-shadow: inset 0 2px 2px rgba(255,255,255,.5),0 2px 8px rgba(0,0,0,.2);
+    border-radius: 10px;
+    border: 1px solid #496805;
+    width: 1pc;
+    height: 1pc;
+}
