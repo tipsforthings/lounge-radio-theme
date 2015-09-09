@@ -49,6 +49,10 @@ function lounge_customizer( $wp_customize ) {
       'panel' => 'lounge_player_panel',
   ) );
   $wp_customize->add_setting( 'lounge_logo' );
+  $wp_customize->add_setting( 'lounge_border_color', array(
+      'default' =>  '#000000',
+      'transport' => 'refresh',
+  ) );
   $wp_customize->add_setting( 'lounge_header_color', array(
       'default' =>  '#000000',
       'transport' => 'refresh',
@@ -174,17 +178,22 @@ function lounge_customizer( $wp_customize ) {
       'settings' => 'lounge_header_color',
       'section' => 'colors'
   ) ) );
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'lounge_b', array(
+      'label'    => __( 'Border Colour', 'lounge' ),
+      'settings' => 'lounge_border_color',
+      'section' => 'colors'
+  ) ) );
   $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'lounge_m_primary', array(
       'label'    => __( 'Menu Primary Colour', 'lounge' ),
       'settings' => 'lounge_menu_color',
       'section' => 'colors'
   ) ) );
-  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'lounge_m_secondary', array(
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'lounge_m_color', array(
       'label'    => __( 'Menu Hover Colour', 'lounge' ),
       'settings' => 'lounge_menu_hover_color',
       'section' => 'colors'
   ) ) );
-  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'lounge_m_secondary', array(
+  $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'lounge_m_bg', array(
       'label'    => __( 'Menu Hover Background', 'lounge' ),
       'settings' => 'lounge_menu_hover_bg',
       'section' => 'colors'
