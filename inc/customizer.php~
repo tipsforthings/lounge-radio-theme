@@ -58,7 +58,7 @@ function lounge_customizer( $wp_customize ) {
       'transport' => 'refresh',
   ) );
   $wp_customize->add_setting( 'lounge_menu_hover_color', array(
-      'default' =>  '#FFFFFF',
+      'default' =>  '#000000',
       'transport' => 'refresh',
   ) );
   $wp_customize->add_setting( 'lounge_menu_hover_bg', array(
@@ -77,19 +77,19 @@ function lounge_customizer( $wp_customize ) {
       'transport' => 'refresh',
   ) );
   $wp_customize->add_setting( 'lounge_display_title' , array(
-      'default'     => 'false',
+      'default'     => 'true',
       'transport'   => 'refresh',
   ) );
   $wp_customize->add_setting( 'lounge_player_enabled' , array(
-      'default'     => 'false',
+      'default'     => 'true',
       'transport'   => 'refresh',
   ) );
   $wp_customize->add_setting( 'lounge_player_primary' , array(
-      'default'     => '#000000',
+      'default'     => 'true',
       'transport'   => 'refresh',
   ) );
   $wp_customize->add_setting( 'lounge_display_desc' , array(
-      'default'     => '',
+      'default'     => 'true',
       'transport'   => 'refresh',
   ) );
   $wp_customize->add_setting( 'lounge_stream_title' , array(

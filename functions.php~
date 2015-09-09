@@ -109,11 +109,7 @@ function lounge_styles()
         <style type="text/css">
           h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a { color:<?php echo get_theme_mod('lounge_header_colour', '#000000'); ?>; }
 	#secondary ul li a {
-		color: <?php echo get_theme_mod('lounge_menu_color', '#000000'); ?>;
-	}
-	#secondary ul li a.active, #secondary ul li a:focus, #secondary ul li a:hover {
-	    background-color: <?php echo get_theme_mod('lounge_menu_hover_bg', '#000000'); ?>;
-	    color: <?php echo get_theme_mod('lounge_menu_hover_color', '#FFFFFF'); ?>;
+		color: <?php echo get_theme_mod('lounge_menu_primary', '#000000'); ?>;
 	}
           <?php if ( get_theme_mod('lounge_player_gradient_enabled') == true ) { ?>
           #lounge-player-gradient {
