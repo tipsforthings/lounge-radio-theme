@@ -1,9 +1,9 @@
 <?php
 /**
- * ALXS Asia Europe functions and definitions
+ * ALXS Lounge functions and definitions
  *
- * @package ALXS Asia Europe
- * @since ALXS Asia Europe 1.0
+ * @package ALXS Lounge
+ * @since ALXS Lounge 1.0
  */
 
 /**

@@ -107,7 +107,7 @@ function lounge_styles()
 {
     ?>
         <style type="text/css">
-          h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a { color:<?php echo get_theme_mod('lounge_header_colour', '#000000'); ?>; }
+          h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a { color:<?php echo get_theme_mod('lounge_header_color', '#000000'); ?>; }
 	#secondary ul li a {
 		color: <?php echo get_theme_mod('lounge_menu_color', '#000000'); ?>;
 	}
