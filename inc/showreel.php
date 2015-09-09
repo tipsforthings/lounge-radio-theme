@@ -28,17 +28,8 @@ if(class_exists('Showreel'))
 
 if (isset($showreel)) {
     function load_custom_admin_scripts() {
-      wp_register_style( 'smoothness', 'http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css' );
       wp_register_script( 'main', plugins_url( '/js/main.js', __FILE__ ), array(), '', true );
-      wp_register_script( 'jquery-ui', 'http://code.jquery.com/ui/1.10.3/jquery-ui.js', array(), '', true );
-      wp_register_script( 'jquery-time', plugins_url( '/js/jquery-time.js', __FILE__ ), array(), '', true );
-      wp_register_style( 'jquery-time', plugins_url( '/css/jquery-time.css', __FILE__ ));
-      wp_enqueue_script( 'jquery' );
-      wp_enqueue_script( 'jquery-ui' );
-      wp_enqueue_script( 'jquery-time' );
       wp_enqueue_script( 'main' );
-      wp_enqueue_style( 'smoothness' );
-      wp_enqueue_style( 'jquery-time' );
     }
     add_action( 'admin_enqueue_scripts', 'load_custom_admin_scripts' );
 
