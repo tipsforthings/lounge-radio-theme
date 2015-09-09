@@ -101,4 +101,6 @@ function lounge_scripts() {
 add_action( 'wp_enqueue_scripts', 'lounge_scripts' );
 
 require get_template_directory() . '/inc/player-setup.php';
+require get_template_directory() . '/inc/showreel.php';
+
 

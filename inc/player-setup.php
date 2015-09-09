@@ -14,11 +14,6 @@ function lounge_player_styles()
           #lounge-player .lounge-player-button { color:<?php echo get_theme_mod('lounge_player_primary', '#000000'); ?>; }
           <?php if ( get_theme_mod('lounge_player_gradient_enabled') == true ) { ?>
           #lounge-player-gradient {
-          position: absolute;
-          left: 0px;
-          top: 0px;
-          width: 100%;
-          height: 100%;
           background-image: -moz-linear-gradient(to bottom, rgba(255,255,255,0.125) 5%, rgba(255,255,255,0.125) 45%, rgba(255,255,255,0.15) 52%, rgba(0,0,0,0.01) 51%, rgba(0,0,0,0.1) 95%);
           background-image: linear-gradient(to bottom, rgba(255,255,255,0.125) 5%, rgba(255,255,255,0.125) 45%, rgba(255,255,255,0.15) 50%, rgba(0,0,0,0.1) 51%, rgba(0,0,0,0.1) 95%);
           }
@@ -36,9 +31,11 @@ function lounge_player_setup() {
 
 
 $(document).ready(function() {
+  $('.lounge-player-status, .lounge-player-volume').fadeIn(100);
   $audio = null;
   $level = null;
   $status = false;
+
   if ($.cookie('player-volume') != null) {
     $level = $.cookie('player-volume');
   } else {
@@ -46,7 +43,12 @@ $(document).ready(function() {
   }
 
   if ($.cookie('play-status') == 'true') {
-    $status = true;
+    if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+      $status = false;
+    } else {
+      $status = true;
+      $('#lounge-player-play i').removeClass('fa-play').addClass('fa-stop');
+    }
   } else {
     $status = false;
   }
@@ -54,7 +56,7 @@ $(document).ready(function() {
   $("#lounge-volume-slider").bind("slider:changed", function (event, data) {
     var $level = (data.value);
     soundManager.setVolume($level);
-    $.cookie('player-volume', $level);
+    $.cookie('player-volume', $level, { expires: 7, path: '/' });
   });
 
   soundManager.setup({
@@ -76,12 +78,15 @@ $(document).ready(function() {
     e.preventDefault();
     if (audio.playState == 0) {
       soundManager.play('vipradio');
-      $.cookie('play-status', 'true');
+      $.cookie('play-status', 'true', { expires: 7, path: '/' });
+      $('#lounge-player-play i').addClass('fa-stop').removeClass('fa-play');
     } else {
       soundManager.stop('vipradio');
       soundManager.unload('vipradio');
-      $.cookie('play-status', 'false');
+      $.cookie('play-status', 'false', { expires: 7, path: '/' });
+      $('#lounge-player-play i').removeClass('fa-stop').addClass('fa-play');
     }
+    
   });
 });
 
