@@ -57,8 +57,8 @@ if (isset($showreel)) {
       'supports'      => array( 'none' ),
       'has_archive'   => false,
       'menu_icon' => 'dashicons-list-view',
-      'show_in_nav_menu' => true,
-      'show_in_menu' => true,
+      'show_in_nav_menu' => false,
+      'show_in_menu' => false,
       'taxonomies' => array('genres', 'day'),
     );
     register_post_type( 'shows', $args );
