@@ -224,7 +224,8 @@ body {
   visibility: hidden;
 }
 .slider {
-  width: unset;
+  width: 85%;
+  margin: 0 auto !important;
 }
 .slider>.dragger {
     background: #000;
@@ -236,7 +237,7 @@ body {
     height: 1pc;
 }
 .slider-volume {
-  width: 300px;
+  width: 90%;
 }
 
 .slider-volume > .dragger {
