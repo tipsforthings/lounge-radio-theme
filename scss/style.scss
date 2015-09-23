@@ -54,8 +54,7 @@ body {
 }
 .sidebar-column {
   background-color: #FFF;
-  border-right: 1px solid #1d1d1d;
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.8);
+  padding: 0;
 }
 .clearfix {
   clear: both;
@@ -151,11 +150,24 @@ body {
   background-image: -moz-linear-gradient(to bottom, rgba(255,255,255,0.125) 5%, rgba(255,255,255,0.125) 45%, rgba(255,255,255,0.15) 52%, rgba(0,0,0,0.01) 51%, rgba(0,0,0,0.1) 95%);
   background-image: linear-gradient(to bottom, rgba(255,255,255,0.125) 5%, rgba(255,255,255,0.125) 45%, rgba(255,255,255,0.15) 50%, rgba(0,0,0,0.1) 51%, rgba(0,0,0,0.1) 95%);
 }
-
+#inner-content {
+  display: table;
+  border-left: 1px solid #000;
+  #content {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+.page-id-1793 {
+  #inner-content {
+  }
+}
 #secondary {  
   background-color: transparent;
-  margin: 0 -1em;
+  margin: 0;
   height: 100%;
+  background-color: #FFF;
+  padding: 0;
   aside {
     padding: 1em;
   }
