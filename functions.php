@@ -133,4 +133,11 @@ function lounge_styles()
     <?php
 }
 add_action( 'wp_head', 'lounge_styles');
-
+function lounge_remove_jetpack() {
+	if( class_exists( 'Jetpack' ) && !current_user_can( 'manage_options' ) ) {
+		remove_menu_page( 'jetpack' , 'tools.php', 'options-general.php');
+		remove_menu_page( 'tools.php' );
+		remove_menu_page( 'options-general.php');
+	}
+}
+add_action( 'admin_init', 'lounge_remove_jetpack' );
