@@ -1,10 +1,10 @@
-$(document).ready( function() {
+$(window).ready( function() {
   $windowHeight = $(window).height();
   $contentHeight = $('#content-wrapper').height();
  
   if ($('#menu-toggle').css('display') == 'none') {
-    $('#content-wrapper, #secondary').css({'min-height': $windowHeight + 'px'});
-    $('#content-wrapper').children('.columns').css({'min-height': $contentHeight + 'px'});
+    $('#content-wrapper, #secondary').css({'height': $windowHeight + 'px'});
+    $('#content-wrapper').children('.columns').css({'height': $contentHeight + 'px'});
   }
 
   $( "#menu-toggle" ).click(function(e) {
@@ -27,4 +27,9 @@ $(window).resize( function() {
     $('#content-wrapper, #secondary').css({'min-height': windowHeight + 'px'});
     $('#content-wrapper').children('.columns').css({'min-height': $contentHeight + 'px'});
   }
+});
+$("#invert-colors").click(function(e) {
+    e.preventDefault();
+    $('body').toggleClass('inverted');
+    
 });

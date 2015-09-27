@@ -21,6 +21,8 @@
 </head>
 
 <body <?php body_class(); ?>>
+<a href="#" id="invert-colors" class="fa fa-4x fa-eye"></a>
+
 <div id="page" class="hfeed site" >
   <div id="content-wrapper" class="row">
     <div class="large-3 medium-4 small-12 sidebar-column columns">

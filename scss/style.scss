@@ -59,6 +59,12 @@ body {
 .clearfix {
   clear: both;
 }
+.row {
+  max-width: unset;
+  .row {
+    max-width: unset;
+  }
+}
 #lounge-player {
   border-bottom: 1px solid #000;
   display: inline-block;
@@ -301,4 +307,22 @@ body {
   background: linear-gradient(top, #c5c5c5, #a2a2a2);
 }
 
-
+#invert-colors {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 9999999;
+}
+.inverted {
+  background-color: #1d1d1d !important;
+  h1, h2, h3, h4, h5, h6, p, ul, li, a, .sidebar-column {
+    filter: invert(100%);
+    -webkit-filter: invert(100%);
+    -moz-filter: invert(100%);
+  }
+  iframe[src*="deezer"] {
+    filter: invert(1);
+    -webkit-filter: invert(1);
+    -moz-filter: invert(1);
+  }
+}
