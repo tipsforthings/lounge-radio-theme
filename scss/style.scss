@@ -166,7 +166,6 @@ body {
   }
 }
 #inner-content {
-  border-left: 1px solid #000;
 }
 .page-id-1793 {
   #inner-content {
@@ -179,7 +178,10 @@ body {
   background-color: #FFF;
   padding: 0;
   aside {
-    padding: 1em;
+    margin: 1em;
+    border: 1px solid #000;
+    border-radius: 5px;
+    overflow: hidden;
   }
   .site-title,
   .site-tagline {
@@ -187,6 +189,9 @@ body {
     width: 100%;
     text-align: center;
     text-transform: uppercase;
+    a {
+      color: #5d5d5d !important;
+    }
   }
   #searchform {
     margin-top: 1rem;
@@ -315,14 +320,27 @@ body {
 }
 .inverted {
   background-color: #1d1d1d !important;
-  h1, h2, h3, h4, h5, h6, p, ul, li, a, .sidebar-column {
+  .sidebar-column {
     filter: invert(100%);
     -webkit-filter: invert(100%);
     -moz-filter: invert(100%);
   }
-  iframe[src*="deezer"] {
+  iframe[src*="deezer"],
+  .gallery-item {
     filter: invert(1);
     -webkit-filter: invert(1);
     -moz-filter: invert(1);
+  }
+  h1, h2, h3, h4, h5, h6, p, ul, li, a {
+    color: #eee;
+  }
+  .sidebar-column,
+  #secondary {
+    background-color: transparent;
+  } 
+  .lounge-player-controls {
+    .lounge-player-element {
+      border: none;
+    }
   }
 }
