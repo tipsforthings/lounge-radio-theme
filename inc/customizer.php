@@ -88,6 +88,10 @@ function lounge_customizer( $wp_customize ) {
       'default'     => 'false',
       'transport'   => 'refresh',
   ) );
+  $wp_customize->add_setting( 'lounge_player_mode' , array(
+      'default'     => 'icecast',
+      'transport'   => 'refresh',
+  ) );
   $wp_customize->add_setting( 'lounge_player_primary' , array(
       'default'     => '#000000',
       'transport'   => 'refresh',
@@ -141,6 +145,16 @@ function lounge_customizer( $wp_customize ) {
       'choices' => array (
         'true' => __('True', 'lounge'),
         'false' => __('False', 'lounge')
+      ),
+  ) ) );
+  $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'lounge_player_mode', array (
+      'label'   =>    __( 'Player Mode', 'lounge' ),
+      'settings' => 'lounge_player_mode',
+      'section' => 'lounge_player_base_section',
+      'type' => 'select',
+      'choices' => array (
+        'icecast' => __('Icecast', 'lounge'),
+        'shoutcast' => __('Shoutcast', 'lounge')
       ),
   ) ) );
   $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'lounge_p_title', array (
