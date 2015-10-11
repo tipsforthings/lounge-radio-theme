@@ -22,10 +22,15 @@
 body {
   .entry-title {
     text-align: center;
+	margin: 3rem 0;
   }
   &.category {
     .entry-title {
       text-align: left;
+	  margin: 1rem 0;
+	  border-bottom: 1px solid #000;
+	  padding: 0.5rem 1rem 0.25rem 0.2rem;
+	  display: inline;
     }
   }
 }
@@ -39,7 +44,9 @@ body {
     }
   }
 }
-
+.widget_synved_social_follow {
+	text-align: center;
+}
   .jp-carousel-info {
     .jp-carousel-photo-info {
       h2  {
@@ -85,7 +92,7 @@ body {
       width: 1%;
       min-height: 3em;
       min-width: 3em;
-      border-left: 1px solid #000;
+      border-right: 1px solid #000;
       &.lounge-status-element {
         width: 100%;
         max-width: 100%;
@@ -147,6 +154,9 @@ body {
     }
   }
 }
+.bp-login-nav {
+  display: none;
+}
 #lounge-player-gradient {
   position: absolute;
   left: 0px;
@@ -166,6 +176,21 @@ body {
   }
 }
 #inner-content {
+	  article {
+	  	padding: 1rem;
+		max-width: 40.075em;
+		margin: 0 auto;
+	  }
+}
+pre {
+ white-space: pre-wrap;       /* css-3 */
+ white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+ white-space: -pre-wrap;      /* Opera 4-6 */
+ white-space: -o-pre-wrap;    /* Opera 7 */
+ word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+.wp-caption {
+  max-width: 100% !important;
 }
 .page-id-1793 {
   #inner-content {
@@ -179,7 +204,6 @@ body {
   padding: 0;
   aside {
     margin: 1em;
-    border: 1px solid #000;
     border-radius: 5px;
     overflow: hidden;
   }
@@ -214,7 +238,6 @@ body {
       a {
         outline: 0;
         display: block;
-        padding-left: 0.675rem;
         color: #4d4d4d;
         text-align: center;
         &:hover,
@@ -344,3 +367,4 @@ body {
     }
   }
 }
+
